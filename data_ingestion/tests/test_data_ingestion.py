@@ -2,6 +2,8 @@ import os
 import tempfile
 import pytest
 
+#set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\ServiceKey_GoogleCloud.json
+#set GRAFANA_API_KEY=your_grafana_api_key
 # Ensure the PYTHONPATH is set to the project root so that imports work correctly.
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))

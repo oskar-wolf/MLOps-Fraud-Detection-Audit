@@ -66,7 +66,7 @@ with open('dashboard.json','w') as f:
 
 #Define Grafana API Details
 GRAFANA_URL = 'http://localhost:3000'
-API_KEY = 'glsa_iJxPD21aSAQVbmtP8aZfqFpk2YLHasEU_7c67913c'
+API_KEY = os.getenv('GRAFANA_API_KEY')
 headers= {
     "Content-Type" : "application/json",
     "Authorization" : f"Bearer  {API_KEY}"
