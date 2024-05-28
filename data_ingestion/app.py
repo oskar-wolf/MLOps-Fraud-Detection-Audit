@@ -35,7 +35,7 @@ def upload_file():
         file_upload_size.inc(file_size)
         return jsonify({'message': 'File uploaded successfully'}), 200
     except Exception as e:
-        file_upload_errors.inc()
+        file_upload_errors.inc(1)
         return jsonify({'message': str(e)}), 500
 
 @app.route('/metrics')
