@@ -1,14 +1,15 @@
 from grafanalib.core import (
-    Dashboard, Graph, GridPos, Target, YAxes, YAxis, Stat
+    Dashboard, GridPos, Target, Stat, GaugePanel
 )
 from grafanalib._gen import DashboardEncoder
 import json
 import requests
 
-# Define the dashboard with multiple panels
+# Define the combined dashboard with panels for both data ingestion and data processing
 dashboard = Dashboard(
-    title="Fraud Detection",
+    title="Fraud Detection Dashboard",
     panels=[
+        # Data Ingestion Panels
         Stat(
             title="File Uploads Total",
             dataSource='prometheus',
@@ -50,6 +51,57 @@ dashboard = Dashboard(
             colorMode="value",
             graphMode="area",
             orientation="horizontal",
+        ),
+        # Data Processing Panels
+        Stat(
+            title="Processed Records Total",
+            dataSource='prometheus',
+            targets=[
+                Target(
+                    expr='processed_records_total',
+                    legendFormat="Total Processed Records",
+                ),
+            ],
+            gridPos=GridPos(h=5, w=5, x=0, y=5),
+            colorMode="value",
+            graphMode="area",
+            orientation="horizontal",
+        ),
+        Stat(
+            title="Data Processing Time",
+            dataSource='prometheus',
+            targets=[
+                Target(
+                    expr='data_processing_seconds_sum',
+                    legendFormat="Processing Time (seconds)",
+                ),
+            ],
+            gridPos=GridPos(h=5, w=5, x=5, y=5),
+            colorMode="value",
+            graphMode="area",
+            orientation="horizontal",
+        ),
+        GaugePanel(
+            title="Missing Values",
+            dataSource='prometheus',
+            targets=[
+                Target(
+                    expr='missing_values',
+                    legendFormat="Missing Values",
+                ),
+            ],
+            gridPos=GridPos(h=5, w=5, x=10, y=5),
+        ),
+        GaugePanel(
+            title="Duplicate Records",
+            dataSource='prometheus',
+            targets=[
+                Target(
+                    expr='duplicate_records',
+                    legendFormat="Duplicate Records",
+                ),
+            ],
+            gridPos=GridPos(h=5, w=5, x=15, y=5),
         ),
     ],
 ).auto_panel_ids()

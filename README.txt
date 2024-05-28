@@ -1,6 +1,9 @@
 Grafana : http://localhost:3000/ 
 Prometheus : http://localhost:9090/
 
+
+
+
 YML File:
 global:
   scrape_interval: 15s
@@ -10,12 +13,41 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:5000']
 
+  - job_name: 'data_preprocessing'
+    static_configs:
+      - targets: ['localhost:8000']
+
+
+
+
+
 cd C:\Users\mrosk\OneDrive\Desktop\prometheus
 prometheus.exe --config.file=prometheus.yml
 
 cd C:\Program Files\GrafanaLabs\grafana\bin
 grafana-server.exe
 
+
+
+
+
 set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\ServiceKey_GoogleCloud.json
-set GRAFANA_API_KEY=your_grafana_api_key
+
+
+Start the Flask app that handles data ingestion:
+	cd data_ingestion
+	python app.py
+
+
+curl -F "file=@dataset/audit_data.csv" http://localhost:5000/upload
+
+
+Execute the cleaning.py script to process the uploaded data:
+	cd data_processing
+	python cleaning.py
+
+	
+cd grafana_dashboards
+python create_dashboards.py
+
 

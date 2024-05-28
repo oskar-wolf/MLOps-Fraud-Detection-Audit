@@ -31,7 +31,7 @@ def upload_file():
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(file.filename)
         blob.upload_from_file(file)
-        file_upload_counter.inc()
+        file_upload_counter.inc(1)
         file_upload_size.inc(file_size)
         return jsonify({'message': 'File uploaded successfully'}), 200
     except Exception as e:
