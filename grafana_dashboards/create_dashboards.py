@@ -1,5 +1,5 @@
 from grafanalib.core import (
-    Dashboard, Graph, GridPos, Target, YAxes, YAxis
+    Dashboard, Graph, GridPos, Target, YAxes, YAxis, Stat
 )
 from grafanalib._gen import DashboardEncoder
 import json
@@ -9,7 +9,7 @@ import requests
 dashboard = Dashboard(
     title="Fraud Detection",
     panels=[
-        Graph(
+        Stat(
             title="File Uploads Total",
             dataSource='prometheus',
             targets=[
@@ -18,13 +18,12 @@ dashboard = Dashboard(
                     legendFormat="Total Uploads",
                 ),
             ],
-            gridPos=GridPos(h=9, w=12, x=0, y=0),
-            yAxes=YAxes(
-                left=YAxis(format="short"),
-                right=YAxis(format="short"),
-            ),
+            gridPos=GridPos(h=5, w=5, x=0, y=0),
+            colorMode="value",
+            graphMode="area",
+            orientation="horizontal",
         ),
-        Graph(
+        Stat(
             title="File Upload Bytes Total",
             dataSource='prometheus',
             targets=[
@@ -33,13 +32,12 @@ dashboard = Dashboard(
                     legendFormat="Total Bytes",
                 ),
             ],
-            gridPos=GridPos(h=9, w=12, x=0, y=9),
-            yAxes=YAxes(
-                left=YAxis(format="bytes"),
-                right=YAxis(format="short"),
-            ),
+            gridPos=GridPos(h=5, w=5, x=5, y=0),
+            colorMode="value",
+            graphMode="area",
+            orientation="horizontal",
         ),
-        Graph(
+        Stat(
             title="File Upload Errors Total",
             dataSource='prometheus',
             targets=[
@@ -48,11 +46,10 @@ dashboard = Dashboard(
                     legendFormat="Upload Errors",
                 ),
             ],
-            gridPos=GridPos(h=9, w=12, x=0, y=18),
-            yAxes=YAxes(
-                left=YAxis(format="short"),
-                right=YAxis(format="short"),
-            ),
+            gridPos=GridPos(h=5, w=5, x=10, y=0),
+            colorMode="value",
+            graphMode="area",
+            orientation="horizontal",
         ),
     ],
 ).auto_panel_ids()
