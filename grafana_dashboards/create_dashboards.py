@@ -128,7 +128,7 @@ def create_dashboard():
                         legendFormat="{{model_name}}",
                     ),
                 ],
-                gridPos=GridPos(h=8, w=20, x=0, y=3),
+                gridPos=GridPos(h=8, w=21, x=0, y=3),
                 orientation="vertical",
                 displayMode="gradient",
                 thresholds=[
@@ -146,7 +146,7 @@ def create_dashboard():
                         legendFormat="{{model_name}}",
                     ),
                 ],
-                gridPos=GridPos(h=8, w=20, x=0, y=6),
+                gridPos=GridPos(h=8, w=21, x=0, y=6),
                 orientation="vertical",
                 displayMode="gradient",
                 thresholds=[
@@ -164,7 +164,7 @@ def create_dashboard():
                         legendFormat="{{model_name}}",
                     ),
                 ],
-                gridPos=GridPos(h=8, w=20, x=0, y=9),
+                gridPos=GridPos(h=8, w=21, x=0, y=9),
                 orientation="vertical",
                 displayMode="gradient",
                 thresholds=[
@@ -182,13 +182,12 @@ def create_dashboard():
                         legendFormat="{{model_name}}",
                     ),
                 ],
-                gridPos=GridPos(h=8, w=20, x=0, y=12),
+                gridPos=GridPos(h=8, w=21, x=0, y=12),
                 orientation="vertical",
                 displayMode="gradient",
                 thresholds=[
                     {"color": color, "value": None} for color in (get_color(i) for i in range(18))
                 ],
-                decimals=5,
                 max=1.0,
                 min = 0.94,
             ),
