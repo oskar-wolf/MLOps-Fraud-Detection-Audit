@@ -692,7 +692,7 @@
           "defaults": {
             "decimals": null,
             "max": 1.0,
-            "min": 0.9,
+            "min": 0.94,
             "title": null,
             "unit": "none",
             "links": []
@@ -817,7 +817,7 @@
           "defaults": {
             "decimals": null,
             "max": 1.0,
-            "min": 0.9,
+            "min": 0.94,
             "title": null,
             "unit": "none",
             "links": []
@@ -946,7 +946,7 @@
           "defaults": {
             "decimals": null,
             "max": 1.0,
-            "min": 0.9,
+            "min": 0.94,
             "title": null,
             "unit": "none",
             "links": []
@@ -1086,8 +1086,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "model_f1{job=\"model_training\"}",
-          "query": "model_f1{job=\"model_training\"}",
+          "expr": "model_f1",
+          "query": "model_f1",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1113,9 +1113,9 @@
             "mean"
           ],
           "defaults": {
-            "decimals": null,
+            "decimals": 5,
             "max": 1.0,
-            "min": 0.9,
+            "min": 0.94,
             "title": null,
             "unit": "none",
             "links": []

@@ -13,6 +13,13 @@ def get_color(index):
     ]
     return colors[index % len(colors)]
 
+colors = [
+    "#7EB26D", "#EAB839", "#6ED0E0", "#EF843C", "#E24D42", 
+    "#1F78C1", "#BA43A9", "#705DA0", "#508642", "#CCA300",
+    "#447EBC", "#C15C17", "#890F02", "#0A437C", "#6D1F62",
+    "#584477", "#B7DBAB", "#F4D598"
+]
+
 def create_dashboard():
     dashboard = Dashboard(
         title="Fraud Detection Dashboard",
@@ -128,7 +135,7 @@ def create_dashboard():
                     {"color": color, "value": None} for color in (get_color(i) for i in range(3))
                 ],
                 max=1.0,
-                min = 0.9
+                min = 0.94
             ),
             BarGauge(
                 title="Model Precision",
@@ -146,7 +153,7 @@ def create_dashboard():
                     {"color": color, "value": None} for color in (get_color(i) for i in range(8))
                 ],
                 max=1.0,
-                min = 0.9
+                min = 0.94
             ),
             BarGauge(
                 title="Model Recall",
@@ -164,7 +171,7 @@ def create_dashboard():
                     {"color": color, "value": None} for color in (get_color(i) for i in range(4))
                 ],
                 max=1.0,
-                min = 0.9
+                min = 0.94
             ),
             BarGauge(
                 title="Model F1 Score",
@@ -181,8 +188,9 @@ def create_dashboard():
                 thresholds=[
                     {"color": color, "value": None} for color in (get_color(i) for i in range(18))
                 ],
+                decimals=5,
                 max=1.0,
-                min = 0.9
+                min = 0.94,
             ),
         ],
     ).auto_panel_ids()
