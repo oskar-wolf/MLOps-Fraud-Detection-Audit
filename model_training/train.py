@@ -94,6 +94,8 @@ def train_and_evaluate(X_train, X_test, y_train, y_test, model_name, model, para
     print('\n')
     print(f"Model: {model_name} - Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1 Score: {f1}")
     print('\n')
+
+    time.sleep(2)
     return best_model, accuracy, precision, recall, f1
 
 def main():

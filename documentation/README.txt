@@ -18,9 +18,6 @@ scrape_configs:
       - targets: ['localhost:8000']
 
 
-
-
-
 cd C:\Users\mrosk\OneDrive\Desktop\prometheus
 prometheus.exe --config.file=prometheus.yml
 
@@ -42,7 +39,7 @@ curl -F "file=@dataset/audit_data.csv" http://localhost:5000/upload
 
 
 Execute the cleaning.py script to process the uploaded data:
-	cd data_processing
+	cd data_preprocessing
 	python cleaning.py
 
 	
