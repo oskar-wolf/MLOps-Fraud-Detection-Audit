@@ -1,5 +1,5 @@
 from grafanalib.core import (
-    Dashboard, GridPos, Target, BarGauge, RowPanel, Stat, Graph
+    Dashboard, GridPos, Target, BarGauge, RowPanel, Stat, Graph, BarGauge
 )
 from grafanalib._gen import DashboardEncoder
 import json
@@ -280,6 +280,10 @@ def create_dashboard():
                     ),
                 ],
                 gridPos=GridPos(h=8, w=12, x=12, y=18),
+                bars=True,
+                lines=False,
+                stack=True,
+                span=12,
             ),
         ],
     ).auto_panel_ids()

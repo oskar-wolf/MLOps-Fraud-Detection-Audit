@@ -20,6 +20,12 @@ from prometheus_client import Summary, Counter, Gauge, start_http_server
 
 from models import models
 
+google_credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+if google_credentials_path and os.path.isfile(google_credentials_path):
+    storage_client = storage.Client.from_service_account_json(google_credentials_path)
+else:
+    raise FileNotFoundError("Google Cloud credentials file not found or environment variable not set correctly.")
+
 TRAINING_TIME = Summary('model_training_seconds', 'Time spent training the model', ['model_name'])
 MODEL_ACCURACY = Gauge('model_accuracy', 'Accuracy of the model', ['model_name'])
 MODEL_PRECISION = Gauge('model_precision', 'Precision of the model', ['model_name'])
@@ -111,7 +117,7 @@ def main():
 
     results = []
 
-    mlflow.set_tracking_uri("http://localhost:5000")
+    mlflow.set_tracking_uri("http://localhost:5001")
     for model_name, (model,params) in models.items():
         print(f'Training {model_name}...')
         with mlflow.start_run(run_name=model_name):

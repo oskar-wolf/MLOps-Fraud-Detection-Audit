@@ -27,8 +27,7 @@ prometheus.exe --config.file=prometheus.yml
 cd C:\Program Files\GrafanaLabs\grafana\bin
 grafana-server.exe
 
-
-
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5001
 
 
 set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\ServiceKey_GoogleCloud.json
