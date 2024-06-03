@@ -1204,6 +1204,158 @@
         "showThresholdMarkers": true
       },
       "type": "bargauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": ""
+          },
+          "color": null,
+          "custom": {},
+          "decimals": null,
+          "mappings": [],
+          "unit": "none",
+          "noValue": "none"
+        },
+        "overrides": []
+      },
+      "height": null,
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 18
+      },
+      "hideTimeOverride": false,
+      "id": 12,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "request_count",
+          "query": "request_count",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "API Calls",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "API Call Count",
+      "transparent": false,
+      "transformations": [],
+      "options": {
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": ""
+          },
+          "color": null,
+          "custom": {},
+          "decimals": null,
+          "mappings": [],
+          "unit": "none",
+          "noValue": "none"
+        },
+        "overrides": []
+      },
+      "height": null,
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 18
+      },
+      "hideTimeOverride": false,
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "request_latency_seconds",
+          "query": "request_latency_seconds",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Latency (s)",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "API Response Latency",
+      "transparent": false,
+      "transformations": [],
+      "options": {
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "type": "stat"
     }
   ],
   "refresh": "10s",

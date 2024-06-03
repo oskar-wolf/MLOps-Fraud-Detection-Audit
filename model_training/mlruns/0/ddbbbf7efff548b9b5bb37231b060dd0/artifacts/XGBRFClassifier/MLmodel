@@ -1,0 +1,20 @@
+artifact_path: XGBRFClassifier
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.0
+mlflow_version: 2.12.2
+model_size_bytes: 73954
+model_uuid: 7c247af4cdb344e2a2a3156c439a0fbe
+run_id: ddbbbf7efff548b9b5bb37231b060dd0
+utc_time_created: '2024-06-03 14:40:22.709368'

@@ -191,6 +191,29 @@ def create_dashboard():
                 max=1.0,
                 min = 0.94,
             ),
+            # Model Serving Panels
+            Stat(
+                title="API Call Count",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='request_count',
+                        legendFormat="API Calls",
+                    ),
+                ],
+                gridPos=GridPos(h=3, w=3, x=0, y=18),
+            ),
+            Stat(
+                title="API Response Latency",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='request_latency_seconds',
+                        legendFormat="Latency (s)",
+                    ),
+                ],
+                gridPos=GridPos(h=3, w=3, x=3, y=18),
+            ),
         ],
     ).auto_panel_ids()
 

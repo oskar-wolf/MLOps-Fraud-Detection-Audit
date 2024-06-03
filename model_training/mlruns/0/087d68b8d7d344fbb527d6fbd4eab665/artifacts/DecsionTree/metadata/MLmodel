@@ -1,0 +1,20 @@
+artifact_path: DecsionTree
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.0
+mlflow_version: 2.12.2
+model_size_bytes: 4709
+model_uuid: cadbcce2333c4d92be3ac37b796bae2e
+run_id: 087d68b8d7d344fbb527d6fbd4eab665
+utc_time_created: '2024-06-03 10:48:54.046168'
