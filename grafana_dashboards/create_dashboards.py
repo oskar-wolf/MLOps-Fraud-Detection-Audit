@@ -191,6 +191,63 @@ def create_dashboard():
                 max=1.0,
                 min = 0.94,
             ),
+
+            # System Monitoring Panels
+            Graph(
+                title="CPU Usage",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='node_cpu_seconds_total',
+                        legendFormat="CPU Usage",
+                    ),
+                ],
+                gridPos=GridPos(h=8, w=12, x=0, y=21),
+            ),
+            Graph(
+                title="Memory Usage",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='node_memory_MemAvailable_bytes',
+                        legendFormat="Memory Usage",
+                    ),
+                ],
+                gridPos=GridPos(h=8, w=12, x=12, y=21),
+            ),
+            Graph(
+                title="Disk I/O",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='node_disk_io_time_seconds_total',
+                        legendFormat="Disk I/O",
+                    ),
+                ],
+                gridPos=GridPos(h=8, w=12, x=0, y=29),
+            ),
+            Graph(
+                title="Network I/O",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='node_network_receive_bytes_total',
+                        legendFormat="Network I/O",
+                    ),
+                ],
+                gridPos=GridPos(h=8, w=12, x=12, y=29),
+            ),
+            Stat(
+                title="System Uptime",
+                dataSource='prometheus',
+                targets=[
+                    Target(
+                        expr='node_time_seconds',
+                        legendFormat="System Uptime",
+                    ),
+                ],
+                gridPos=GridPos(h=3, w=3, x=0, y=37),
+            ),
             # Model Serving Panels
             Stat(
                 title="API Call Count",
@@ -201,7 +258,7 @@ def create_dashboard():
                         legendFormat="API Calls",
                     ),
                 ],
-                gridPos=GridPos(h=3, w=3, x=0, y=18),
+                gridPos=GridPos(h=3, w=3, x=3, y=37),
             ),
             Stat(
                 title="API Response Latency",
@@ -212,7 +269,7 @@ def create_dashboard():
                         legendFormat="Latency (s)",
                     ),
                 ],
-                gridPos=GridPos(h=3, w=3, x=3, y=18),
+                gridPos=GridPos(h=3, w=3, x=6, y=37),
             ),
         ],
     ).auto_panel_ids()

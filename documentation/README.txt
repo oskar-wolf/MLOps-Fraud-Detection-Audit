@@ -25,6 +25,13 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:8003']
 
+  - job_name: 'windows_exporter'
+    static_configs:
+      - targets: ['localhost:9182']
+
+---windows exporter-----
+https://github.com/prometheus-community/windows_exporter/releases
+
 ---Prometheus server -------
 	
 	cd C:\Users\mrosk\OneDrive\Desktop\prometheus

@@ -1,10 +1,12 @@
 import mlflow
-import os
+import mlflow.sklearn
 
-def setup_mlflow():
-    mlflow.set_tracking_uri("http://localhost:5001")
+if __name__ == "__main__":
+    # Set the tracking URI to a local file-based store
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+
+    # Set the experiment name
     mlflow.set_experiment("Fraud Detection Experiment")
 
-if __name__ == '__main__':
-    setup_mlflow()
-
+    # Start the MLflow server
+    mlflow.server()
