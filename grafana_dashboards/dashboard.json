@@ -1215,6 +1215,538 @@
         "defaults": {
           "thresholds": {
             "mode": "absolute",
+            "steps": []
+          },
+          "unit": ""
+        }
+      },
+      "height": null,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "hideTimeOverride": false,
+      "id": 12,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "windows_cpu_processor_utility_total",
+          "query": "windows_cpu_processor_utility_total",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "CPU Usage",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU Usage",
+      "transparent": false,
+      "transformations": [],
+      "aliasColors": {},
+      "bars": false,
+      "fill": 1,
+      "grid": {
+        "threshold1": null,
+        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+        "threshold2": null,
+        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+      },
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false,
+        "alignAsTable": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "rightSide": false,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": [],
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "stack": false,
+      "steppedLine": false,
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "thresholds": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "name": null,
+        "values": [],
+        "show": true
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 0
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": ""
+        }
+      },
+      "height": null,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "hideTimeOverride": false,
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "process_resident_memory_bytes",
+          "query": "process_resident_memory_bytes",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Memory Usage",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Memory Usage",
+      "transparent": false,
+      "transformations": [],
+      "aliasColors": {},
+      "bars": false,
+      "fill": 1,
+      "grid": {
+        "threshold1": null,
+        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+        "threshold2": null,
+        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+      },
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false,
+        "alignAsTable": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "rightSide": false,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": [],
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "stack": false,
+      "steppedLine": false,
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "thresholds": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "name": null,
+        "values": [],
+        "show": true
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 0
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": ""
+        }
+      },
+      "height": null,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 29
+      },
+      "hideTimeOverride": false,
+      "id": 14,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "windows_logical_disk_free_bytes",
+          "query": "windows_logical_disk_free_bytes",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Disk I/O",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Disk I/O",
+      "transparent": false,
+      "transformations": [],
+      "aliasColors": {},
+      "bars": false,
+      "fill": 1,
+      "grid": {
+        "threshold1": null,
+        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+        "threshold2": null,
+        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+      },
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false,
+        "alignAsTable": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "rightSide": false,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": [],
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "stack": false,
+      "steppedLine": false,
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "thresholds": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "name": null,
+        "values": [],
+        "show": true
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 0
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": ""
+        }
+      },
+      "height": null,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 29
+      },
+      "hideTimeOverride": false,
+      "id": 15,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "windows_net_bytes_total",
+          "query": "windows_net_bytes_total",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Network I/O",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Network I/O",
+      "transparent": false,
+      "transformations": [],
+      "aliasColors": {},
+      "bars": false,
+      "fill": 1,
+      "grid": {
+        "threshold1": null,
+        "threshold1Color": "rgba(216, 200, 27, 0.27)",
+        "threshold2": null,
+        "threshold2Color": "rgba(234, 112, 112, 0.22)"
+      },
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false,
+        "alignAsTable": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "rightSide": false,
+        "sideWidth": null,
+        "sort": null,
+        "sortDesc": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": [],
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "stack": false,
+      "steppedLine": false,
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "thresholds": [],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "name": null,
+        "values": [],
+        "show": true
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": 0
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
             "steps": ""
           },
           "color": null,
@@ -1231,10 +1763,10 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 18
+        "y": 37
       },
       "hideTimeOverride": false,
-      "id": 12,
+      "id": 16,
       "interval": null,
       "links": [],
       "maxDataPoints": 100,
@@ -1245,8 +1777,84 @@
       "span": null,
       "targets": [
         {
-          "expr": "request_count",
-          "query": "request_count",
+          "expr": "windows_system_system_up_time",
+          "query": "windows_system_system_up_time",
+          "target": "",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "System Uptime",
+          "metric": "",
+          "refId": "",
+          "step": 10,
+          "instant": false,
+          "datasource": null
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "System Uptime",
+      "transparent": false,
+      "transformations": [],
+      "options": {
+        "textMode": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        }
+      },
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "prometheus",
+      "description": null,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": ""
+          },
+          "color": null,
+          "custom": {},
+          "decimals": null,
+          "mappings": [],
+          "unit": "none",
+          "noValue": "none"
+        },
+        "overrides": []
+      },
+      "height": null,
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 37
+      },
+      "hideTimeOverride": false,
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "minSpan": null,
+      "repeat": null,
+      "repeatDirection": null,
+      "maxPerRow": null,
+      "span": null,
+      "targets": [
+        {
+          "expr": "request_count_total",
+          "query": "request_count_total",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1306,11 +1914,11 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 3,
-        "y": 18
+        "x": 6,
+        "y": 37
       },
       "hideTimeOverride": false,
-      "id": 13,
+      "id": 18,
       "interval": null,
       "links": [],
       "maxDataPoints": 100,
@@ -1321,8 +1929,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "request_latency_seconds",
-          "query": "request_latency_seconds",
+          "expr": "request_latency_seconds_sum",
+          "query": "request_latency_seconds_sum",
           "target": "",
           "format": "time_series",
           "hide": false,

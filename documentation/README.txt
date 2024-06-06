@@ -53,7 +53,7 @@ set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\
 --------Data Ingestion----------
 	
 	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\data_ingestion
-	python app.py
+	python data_injestion.py
 
 	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit
 	curl -F "file=@dataset/audit_data.csv" http://localhost:5000/upload

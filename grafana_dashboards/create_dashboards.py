@@ -198,7 +198,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='node_cpu_seconds_total',
+                        expr='windows_cpu_processor_utility_total',
                         legendFormat="CPU Usage",
                     ),
                 ],
@@ -209,7 +209,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='node_memory_MemAvailable_bytes',
+                        expr='process_resident_memory_bytes',
                         legendFormat="Memory Usage",
                     ),
                 ],
@@ -220,7 +220,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='node_disk_io_time_seconds_total',
+                        expr='windows_logical_disk_free_bytes',
                         legendFormat="Disk I/O",
                     ),
                 ],
@@ -231,7 +231,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='node_network_receive_bytes_total',
+                        expr='windows_net_bytes_total',
                         legendFormat="Network I/O",
                     ),
                 ],
@@ -242,7 +242,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='node_time_seconds',
+                        expr='windows_system_system_up_time',
                         legendFormat="System Uptime",
                     ),
                 ],
@@ -254,7 +254,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='request_count',
+                        expr='request_count_total',
                         legendFormat="API Calls",
                     ),
                 ],
@@ -265,7 +265,7 @@ def create_dashboard():
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='request_latency_seconds',
+                        expr='request_latency_seconds_sum',
                         legendFormat="Latency (s)",
                     ),
                 ],
