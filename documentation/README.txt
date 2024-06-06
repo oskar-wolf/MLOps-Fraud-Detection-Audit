@@ -85,6 +85,3 @@ python create_dashboards.py
 
 	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\model_training\tests
 	pytest test_model_training.py
-
-	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\model_serving\tests
-	pytest test_serve_model.py
