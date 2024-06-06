@@ -19,8 +19,9 @@ def sample_data():
     return df
 
 def test_feature_selection(sample_data):
-    selected_data = feature_selection(sample_data, target_column='Risk', n_features=10)
-    assert selected_data.shape[1] == 10
+    X_selected, y, kbest_selector, selected_features = feature_selection(sample_data, target_column='Risk', n_features=10)
+    assert X_selected.shape[1] == 10
+    assert len(selected_features) == 10
 
 def test_train_and_evaluate(sample_data, tmpdir):
     X = sample_data.drop(columns=['Risk'])

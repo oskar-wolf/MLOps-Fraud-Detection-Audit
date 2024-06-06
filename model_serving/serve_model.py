@@ -8,7 +8,7 @@ from prometheus_client import Counter, Summary, start_http_server
 app = Flask(__name__)
 
 # Load trained model
-model_path = os.path.join('..', 'model_training', 'saved_models', 'SVM.joblib')
+model_path = os.path.join('..', 'model_training', 'saved_models', 'XGBoost.joblib')
 model = joblib.load(model_path)
 
 # Load preprocessing pipeline

@@ -37,7 +37,8 @@ scrape_configs:
 
 ----mlflow server------
 	
-	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\model_training
+	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\monitoring
+	python mlflow_setup.py
 	mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5001
 
 set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\ServiceKey_GoogleCloud.json
@@ -71,7 +72,7 @@ set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\mrosk\OneDrive\Desktop\Google-Cloud\
 
 
 ----Dashboard-----
-cd grafana_dashboards
+cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\grafana_dashboards
 python create_dashboards.py
 
 ------Testing-------
