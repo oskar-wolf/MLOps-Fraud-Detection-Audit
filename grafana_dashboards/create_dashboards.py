@@ -193,16 +193,17 @@ def create_dashboard():
             ),
 
             # System Monitoring Panels
-            Graph(
-                title="CPU Usage",
+            BarGauge(title="CPU Usage",
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='windows_cpu_processor_utility_total',
-                        legendFormat="CPU Usage",
+                        expr='process_cpu_seconds_total',
+                        legendFormat="{{instance}} CPU Usage",
                     ),
                 ],
                 gridPos=GridPos(h=8, w=12, x=0, y=21),
+                orientation = "horizontal",
+                displayMode = "lcd",
             ),
             Graph(
                 title="Memory Usage",
@@ -210,29 +211,35 @@ def create_dashboard():
                 targets=[
                     Target(
                         expr='process_resident_memory_bytes',
-                        legendFormat="Memory Usage",
+                        legendFormat="{{instance}} Memory Usage",
                     ),
                 ],
                 gridPos=GridPos(h=8, w=12, x=12, y=21),
             ),
-            Graph(
-                title="Disk I/O",
+            BarGauge(
+                title="Model Training Seconds",
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='windows_logical_disk_free_bytes',
-                        legendFormat="Disk I/O",
+                        expr='model_training_seconds_sum',
+                        legendFormat="{{model_name}}",
                     ),
                 ],
                 gridPos=GridPos(h=8, w=12, x=0, y=29),
+                orientation="vertical",
+                displayMode="gradient",
+                thresholds=[
+                    {"color": color, "value": None} for color in (get_color(i) for i in range(12))
+                ],
+                max=6,
+                min=0,
             ),
             Graph(
-                title="Network I/O",
+                title="Process Start Time Seconds",
                 dataSource='prometheus',
                 targets=[
                     Target(
-                        expr='windows_net_bytes_total',
-                        legendFormat="Network I/O",
+                        expr='process_start_time_seconds',
                     ),
                 ],
                 gridPos=GridPos(h=8, w=12, x=12, y=29),
@@ -298,7 +305,7 @@ if __name__ == '__main__':
     save_dashboard(dashboard)
 
     # Define Grafana API details
-    GRAFANA_URL = 'http://admin:admin@localhost:3000'  # Using basic auth for simplicity
+    GRAFANA_URL = 'http://admin:admin@localhost:3100'  # Using basic auth for simplicity
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json"

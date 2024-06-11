@@ -1,0 +1,10 @@
+FROM python:3.12
+
+WORKDIR /app
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY model_training /app/model_training
+
+CMD ["python", "model_training/train.py"]

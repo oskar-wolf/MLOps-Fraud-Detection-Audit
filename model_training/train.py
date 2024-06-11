@@ -46,20 +46,20 @@ def load_data(local_file_path):
     return pd.read_csv(local_file_path)
 
 def save_model(model, model_name):
-    model_dir = os.path.join('saved_models')
+    model_dir = os.path.join('model_serving', 'saved_models')
     os.makedirs(model_dir, exist_ok=True)
     model_path = os.path.join(model_dir, f'{model_name}.joblib')
     joblib.dump(model, model_path)
     print(f"Model {model_name} saved to {model_path}.")
 
 def save_pipeline(pipeline):
-    pipeline_dir = 'preprocessing_objects'
+    pipeline_dir = os.path.join('model_serving', 'preprocessing_objects')
     os.makedirs(pipeline_dir, exist_ok=True)
     joblib.dump(pipeline, os.path.join(pipeline_dir, 'pipeline.joblib'))
     print("Pipeline saved.")
 
 def save_selected_features(features):
-    pipeline_dir = 'preprocessing_objects'
+    pipeline_dir = os.path.join('model_serving', 'preprocessing_objects')
     os.makedirs(pipeline_dir, exist_ok=True)
     with open(os.path.join(pipeline_dir, 'selected_features.json'), 'w') as f:
         json.dump(features.tolist(), f)
@@ -146,7 +146,7 @@ def main():
 
     results = []
     
-    mlflow.set_tracking_uri("http://localhost:5001")
+    mlflow.set_tracking_uri("http://mlflow:5001")
     mlflow.set_experiment("Fraud Detection Experiment")
 
     for model_name, (model, params) in models.items():

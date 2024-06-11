@@ -1239,8 +1239,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "node_cpu_seconds_total",
-          "query": "node_cpu_seconds_total",
+          "expr": "windows_cpu_processor_utility_total",
+          "query": "windows_cpu_processor_utility_total",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1372,8 +1372,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "node_memory_MemAvailable_bytes",
-          "query": "node_memory_MemAvailable_bytes",
+          "expr": "process_resident_memory_bytes",
+          "query": "process_resident_memory_bytes",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1505,8 +1505,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "node_disk_io_time_seconds_total",
-          "query": "node_disk_io_time_seconds_total",
+          "expr": "windows_logical_disk_free_bytes",
+          "query": "windows_logical_disk_free_bytes",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1638,8 +1638,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "node_network_receive_bytes_total",
-          "query": "node_network_receive_bytes_total",
+          "expr": "windows_net_bytes_total",
+          "query": "windows_net_bytes_total",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1777,8 +1777,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "node_time_seconds",
-          "query": "node_time_seconds",
+          "expr": "windows_system_system_up_time",
+          "query": "windows_system_system_up_time",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1853,8 +1853,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "request_count",
-          "query": "request_count",
+          "expr": "request_count_total",
+          "query": "request_count_total",
           "target": "",
           "format": "time_series",
           "hide": false,
@@ -1929,8 +1929,8 @@
       "span": null,
       "targets": [
         {
-          "expr": "request_latency_seconds",
-          "query": "request_latency_seconds",
+          "expr": "request_latency_seconds_sum",
+          "query": "request_latency_seconds_sum",
           "target": "",
           "format": "time_series",
           "hide": false,

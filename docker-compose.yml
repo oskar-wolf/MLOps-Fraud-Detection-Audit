@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  data_ingestion:
+    build:
+      context: .
+      dockerfile: Dockerfile.data_ingestion
+    ports:
+      - "5000:5000"
+    volumes:
+      - C:\Users\mrosk\OneDrive\Desktop\Google-Cloud/ServiceKey_GoogleCloud.json:/app/ServiceKey_GoogleCloud.json
+      - ./dataset:/app/dataset
+      - ./model_training/saved_models:/app/model_training/saved_models
+      - ./model_training/preprocessing_objects:/app/model_training/preprocessing_objects
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/ServiceKey_GoogleCloud.json
+    depends_on:
+      - mlflow
+
+  data_preprocessing:
+    build:
+      context: .
+      dockerfile: Dockerfile.data_preprocessing
+    ports:
+      - "8000:8000"
+    volumes:
+      - C:\Users\mrosk\OneDrive\Desktop\Google-Cloud/ServiceKey_GoogleCloud.json:/app/ServiceKey_GoogleCloud.json
+      - ./dataset:/app/dataset
+      - ./model_training/saved_models:/app/model_training/saved_models
+      - ./model_training/preprocessing_objects:/app/model_training/preprocessing_objects
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/ServiceKey_GoogleCloud.json
+    depends_on:
+      - data_ingestion
+
+  model_training:
+    build:
+      context: .
+      dockerfile: Dockerfile.model_training
+    ports:
+      - "8001:8001"
+    volumes:
+      - C:\Users\mrosk\OneDrive\Desktop\Google-Cloud/ServiceKey_GoogleCloud.json:/app/ServiceKey_GoogleCloud.json
+      - ./dataset:/app/dataset
+      - ./model_training/saved_models:/app/model_training/saved_models
+      - ./model_training/preprocessing_objects:/app/model_training/preprocessing_objects
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/ServiceKey_GoogleCloud.json
+    depends_on:
+      - data_preprocessing
+
+  model_serving:
+    build:
+      context: .
+      dockerfile: Dockerfile.model_serving
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./model_serving/saved_models:/app/saved_models
+      - ./model_serving/preprocessing_objects:/app/preprocessing_objects
+      - ./dataset:/app/dataset
+      - ./model_training/saved_models:/app/model_training/saved_models
+      - ./model_training/preprocessing_objects:/app/model_training/preprocessing_objects
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/ServiceKey_GoogleCloud.json
+    depends_on:
+      - model_training
+      - mlflow
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./Google-Cloud/ServiceKey_GoogleCloud.json:/app/ServiceKey_GoogleCloud.json
+      - ./dataset:/app/dataset
+      - ./model_training/saved_models:/app/model_training/saved_models
+      - ./model_training/preprocessing_objects:/app/model_training/preprocessing_objects
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/ServiceKey_GoogleCloud.json
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3100:3000"
+
+volumes:
+  model_data:

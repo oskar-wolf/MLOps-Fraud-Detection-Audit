@@ -1,6 +1,8 @@
 ----Local Hosts------
 Grafana : http://localhost:3000/ 
 Prometheus : http://localhost:9090/
+mlflow : http://localhost:5001/
+
 
 ----Prometheus Configuration------
 YML File:
@@ -92,3 +94,18 @@ python create_dashboards.py
 
 	cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\model_training\tests
 	pytest test_model_training.py
+
+---Deployment-----
+docker-compose down
+docker-compose up --build
+
+cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit
+curl -F "file=@dataset/audit_data.csv" http://localhost:5000/upload
+
+cd C:/Users/mrosk/OneDrive/Desktop/Fraud-Detection-Audit/model_training
+curl -X POST http://localhost:5002/predict_from_csv -F "file=@cleaned_audit_data.csv"
+
+
+cd C:\Users\mrosk\OneDrive\Desktop\Fraud-Detection-Audit\grafana_dashboards
+python create_dashboards.py
+

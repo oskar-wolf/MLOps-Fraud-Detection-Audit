@@ -1,0 +1,12 @@
+FROM python:3.12
+
+WORKDIR /app
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY data_ingestion /app/data_ingestion
+
+EXPOSE 5000
+
+CMD ["python", "data_ingestion/data_ingestion.py"]

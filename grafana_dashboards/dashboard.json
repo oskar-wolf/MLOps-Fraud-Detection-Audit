@@ -1215,9 +1215,25 @@
         "defaults": {
           "thresholds": {
             "mode": "absolute",
-            "steps": []
-          },
-          "unit": ""
+            "steps": [
+              {
+                "op": "gt",
+                "yaxis": "left",
+                "color": "green",
+                "line": true,
+                "index": 0,
+                "value": "null"
+              },
+              {
+                "op": "gt",
+                "yaxis": "left",
+                "color": "red",
+                "line": true,
+                "index": 1,
+                "value": 80.0
+              }
+            ]
+          }
         }
       },
       "height": null,
@@ -1239,14 +1255,14 @@
       "span": null,
       "targets": [
         {
-          "expr": "windows_cpu_processor_utility_total",
-          "query": "windows_cpu_processor_utility_total",
+          "expr": "process_cpu_seconds_total",
+          "query": "process_cpu_seconds_total",
           "target": "",
           "format": "time_series",
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "CPU Usage",
+          "legendFormat": "{{instance}} CPU Usage",
           "metric": "",
           "refId": "",
           "step": 10,
@@ -1259,84 +1275,48 @@
       "title": "CPU Usage",
       "transparent": false,
       "transformations": [],
-      "aliasColors": {},
-      "bars": false,
-      "fill": 1,
-      "grid": {
-        "threshold1": null,
-        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-        "threshold2": null,
-        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-      },
-      "isNew": true,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false,
-        "alignAsTable": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "rightSide": false,
-        "sideWidth": null,
-        "sort": null,
-        "sortDesc": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "connected",
       "options": {
-        "dataLinks": [],
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "stack": false,
-      "steppedLine": false,
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "thresholds": [],
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "name": null,
-        "values": [],
-        "show": true
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+        "displayMode": "lcd",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "decimals": null,
+            "max": 100,
+            "min": 0,
+            "title": null,
+            "unit": "none",
+            "links": []
+          },
+          "limit": null,
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "op": "gt",
+              "yaxis": "left",
+              "color": "green",
+              "line": true,
+              "index": 0,
+              "value": "null"
+            },
+            {
+              "op": "gt",
+              "yaxis": "left",
+              "color": "red",
+              "line": true,
+              "index": 1,
+              "value": 80.0
+            }
+          ],
+          "values": false
         },
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": 0
-      }
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "type": "bargauge"
     },
     {
       "cacheTimeout": null,
@@ -1379,7 +1359,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "Memory Usage",
+          "legendFormat": "{{instance}} Memory Usage",
           "metric": "",
           "refId": "",
           "step": 10,
@@ -1481,9 +1461,57 @@
         "defaults": {
           "thresholds": {
             "mode": "absolute",
-            "steps": []
-          },
-          "unit": ""
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": null
+              },
+              {
+                "color": "purple",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": null
+              },
+              {
+                "color": "pink",
+                "value": null
+              },
+              {
+                "color": "cyan",
+                "value": null
+              },
+              {
+                "color": "brown",
+                "value": null
+              },
+              {
+                "color": "lime",
+                "value": null
+              },
+              {
+                "color": "magenta",
+                "value": null
+              },
+              {
+                "color": "grey",
+                "value": null
+              }
+            ]
+          }
         }
       },
       "height": null,
@@ -1505,14 +1533,14 @@
       "span": null,
       "targets": [
         {
-          "expr": "windows_logical_disk_free_bytes",
-          "query": "windows_logical_disk_free_bytes",
+          "expr": "model_training_seconds_sum",
+          "query": "model_training_seconds_sum",
           "target": "",
           "format": "time_series",
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "Disk I/O",
+          "legendFormat": "{{model_name}}",
           "metric": "",
           "refId": "",
           "step": 10,
@@ -1522,87 +1550,83 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Disk I/O",
+      "title": "Model Training Seconds",
       "transparent": false,
       "transformations": [],
-      "aliasColors": {},
-      "bars": false,
-      "fill": 1,
-      "grid": {
-        "threshold1": null,
-        "threshold1Color": "rgba(216, 200, 27, 0.27)",
-        "threshold2": null,
-        "threshold2Color": "rgba(234, 112, 112, 0.22)"
-      },
-      "isNew": true,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false,
-        "alignAsTable": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "rightSide": false,
-        "sideWidth": null,
-        "sort": null,
-        "sortDesc": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "connected",
       "options": {
-        "dataLinks": [],
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "stack": false,
-      "steppedLine": false,
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "thresholds": [],
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "name": null,
-        "values": [],
-        "show": true
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+        "displayMode": "gradient",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "decimals": null,
+            "max": 6,
+            "min": 0,
+            "title": null,
+            "unit": "none",
+            "links": []
+          },
+          "limit": null,
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "blue",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": null
+            },
+            {
+              "color": "yellow",
+              "value": null
+            },
+            {
+              "color": "purple",
+              "value": null
+            },
+            {
+              "color": "orange",
+              "value": null
+            },
+            {
+              "color": "pink",
+              "value": null
+            },
+            {
+              "color": "cyan",
+              "value": null
+            },
+            {
+              "color": "brown",
+              "value": null
+            },
+            {
+              "color": "lime",
+              "value": null
+            },
+            {
+              "color": "magenta",
+              "value": null
+            },
+            {
+              "color": "grey",
+              "value": null
+            }
+          ],
+          "values": false
         },
-        {
-          "decimals": null,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": 0
-      }
+        "orientation": "vertical",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "type": "bargauge"
     },
     {
       "cacheTimeout": null,
@@ -1638,14 +1662,14 @@
       "span": null,
       "targets": [
         {
-          "expr": "windows_net_bytes_total",
-          "query": "windows_net_bytes_total",
+          "expr": "process_start_time_seconds",
+          "query": "process_start_time_seconds",
           "target": "",
           "format": "time_series",
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "Network I/O",
+          "legendFormat": "",
           "metric": "",
           "refId": "",
           "step": 10,
@@ -1655,7 +1679,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Network I/O",
+      "title": "Process Start Time Seconds",
       "transparent": false,
       "transformations": [],
       "aliasColors": {},
